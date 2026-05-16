@@ -1,0 +1,94 @@
+/* Fondo */
+.login-container {
+  background: #251e1e;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Card */
+.login-card {
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 12px;
+  width: 350px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Título */
+.login-title {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+/* Inputs */
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #121212;
+  color: #fff;
+}
+
+.login-input::placeholder {
+  color: #aaa;
+}
+
+.login-input:focus {
+  border-color: #f1c40f;
+  outline: none;
+}
+
+/* Botón */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background: #f1c40f;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-button:hover {
+  background: #a78500;
+}
+
+/* Link */
+.login-link {
+  color: #f1c40f;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Texto */
+.login-text {
+  text-align: center;
+  color: #ccc;
+  margin-top: 15px;
+}
+
+/* Botón volver */
+.login-back {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 50px;
+  color: #ffffff;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.login-back:hover {
+  color: #a78500;
+}

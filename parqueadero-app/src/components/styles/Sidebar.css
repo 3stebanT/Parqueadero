@@ -1,0 +1,76 @@
+/* Contenedor */
+.sidebar {
+  width: 220px;
+  min-height: 100vh; /* cambio clave */
+  background: #121212;
+  color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Título */
+.sidebar-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* Lista */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+/* Items */
+.sidebar-item {
+  margin-bottom: 10px;
+}
+
+/* Links */
+.sidebar-link {
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+/* Hover amarillo */
+.sidebar-link:hover {
+  background: #f1c40f;
+  color: #000;
+}
+
+/* Hover más oscuro */
+.sidebar-link:active {
+  background: #a78500;
+}
+
+/* Logout */
+.sidebar-logout {
+  padding: 10px;
+  border-radius: 8px;
+  color: #e74c3c;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar-logout:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.sidebar-logout:hover {
+  background: #f1c40f;
+  color: #000;
+}
+.sidebar-title {
+  font-size: 35px;
+  margin-bottom: 16px;
+  color: #f1c40f;
+  font-weight: bold;
+}

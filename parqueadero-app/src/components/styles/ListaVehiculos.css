@@ -1,0 +1,77 @@
+/* Contenedor */
+.lista-container {
+  padding: 30px;
+  background: #121212;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Título */
+.lista-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* Tabla contenedor */
+.lista-table-container {
+  overflow-x: auto;
+}
+
+/* Tabla */
+.lista-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Encabezado */
+.lista-table thead {
+  background: #f1c40f;
+  color: #000;
+}
+
+/* Celdas */
+.lista-table th,
+.lista-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+/* Filas */
+.lista-table tbody tr {
+  border-bottom: 1px solid #333;
+  transition: 0.3s;
+}
+
+/* Hover */
+.lista-table tbody tr:hover {
+  background: #2a2a2a;
+}
+
+/* Placa */
+.lista-placa {
+  font-weight: bold;
+}
+
+/* Botón salida */
+.lista-button {
+  padding: 8px 12px;
+  background: #f1c40f;
+  border: none;
+  border-radius: 6px;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.lista-button:hover {
+  background: #a78500;
+}
+
+/* Texto vacío */
+.lista-empty {
+  color: #ccc;
+}

@@ -1,0 +1,57 @@
+/* Contenedor */
+.historial-container {
+  padding: 30px;
+  background: #121212;
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* Título */
+.historial-title {
+  font-size: 26px;
+  margin-bottom: 20px;
+  color:#ccc
+}
+
+/* Tabla contenedor */
+.historial-table-container {
+  overflow-x: auto;
+}
+
+/* Tabla */
+.historial-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Encabezado */
+.historial-table thead {
+  background: #f1c40f;
+  color: #000;
+}
+
+/* Celdas */
+.historial-table th,
+.historial-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+/* Filas */
+.historial-table tbody tr {
+  border-bottom: 1px solid #333;
+  transition: 0.3s;
+}
+
+/* Hover fila */
+.historial-table tbody tr:hover {
+  background: #2a2a2a;
+}
+
+/* Texto vacío */
+.historial-empty {
+  color: #ccc;
+}

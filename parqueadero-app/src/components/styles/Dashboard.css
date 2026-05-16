@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  background: #0f172a;
+  font-family: Arial, sans-serif;
+}
+
+/* Contenedor */
+.dashboard-container {
+  padding: 30px;
+  background: #121212;
+  color: #fff;
+
+  min-height: 100vh;
+  width: 100%;
+
+  border-radius: 0;
+}
+
+/* Título */
+.dashboard-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.dashboard-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Card */
+.dashboard-card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  width: 220px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+/* Hover */
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Título card */
+.dashboard-card h4 {
+  color: #ccc;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Valor */
+.dashboard-card h2 {
+  color: #f1c40f;
+  font-size: 26px;
+}
+
+.dashboard-title {
+  color: #f1c40f;
+}
