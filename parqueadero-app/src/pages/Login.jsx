@@ -55,12 +55,12 @@ function Login() {
           Ingresar
         </button>
 
-        <p className="login-text">
+        {/* <p className="login-text">
           ¿No tienes cuenta?{" "}
           <Link to="/registro" className="login-link">
             Regístrate aquí
           </Link>
-        </p>
+        </p> */}
       </div>
     </div>
   );
