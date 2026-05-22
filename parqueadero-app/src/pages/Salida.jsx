@@ -13,6 +13,8 @@ function Salida() {
     cargarVehiculos();
   }, []);
 
+  const URL = import.meta.env.VITE_API_URL;
+  
   const cargarVehiculos = async () => {
     const data = await obtenerVehiculos();
     setVehiculos(data);
@@ -61,7 +63,7 @@ function Salida() {
   // CONFIRMAR SALIDA
   const confirmarSalida = async () => {
     try {
-      await fetch(`http://localhost:3000/vehiculos/${factura.idVehiculo}`, {
+      await fetch(`${URL}/vehiculos/${factura.idVehiculo}`, {
         method: "PUT",
       });
 
