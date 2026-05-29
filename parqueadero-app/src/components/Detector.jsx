@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Detector() {
+export function useDetector() {
   const [image, setImagen] = useState(null);
   const [preview, setPreview] = useState("");
   const [placa, setPlaca] = useState("");
@@ -18,28 +18,21 @@ function Detector() {
   };
 
   const detectar = async () => {
-    if (!image) {
-      setMensaje("Seleccione una imagen");
-      return;
-    }
+    if (!image) return setMensaje("Seleccione una imagen");
 
     const formData = new FormData();
     formData.append("image", image);
 
-    setLoading(true); // 🔥 inicia escaneo
+    setLoading(true);
     setMensaje("Detectando placa...");
 
     try {
-      setMensaje("Detectando placa...");
-
       const res = await fetch(`${API_URL}/detectar`, {
         method: "POST",
         body: formData,
       });
 
       const data = await res.json();
-
-      console.log("RESPUESTA BACKEND:", data);
 
       if (!data.placa || data.placa === "No detectada") {
         setMensaje(data.error || "Error detectando placa");
@@ -50,49 +43,36 @@ function Detector() {
       setMensaje("Placa detectada correctamente");
 
     } catch (error) {
-      console.log(error);
       setMensaje("Error detectando placa");
+    } finally {
+      setLoading(false);
     }
   };
 
   const registrarVehiculo = async () => {
-    if (!placa) {
-      setMensaje("No hay placa detectada");
-      return;
-    }
+    if (!placa) return setMensaje("No hay placa detectada");
 
     try {
       const res = await fetch(`${API_URL}/vehiculos`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          placa,
-          tipo,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ placa, tipo }),
       });
 
       const data = await res.json();
 
-      if (data.error) {
-        setMensaje(data.error);
-        return;
-      }
+      if (data.error) return setMensaje(data.error);
 
       setMensaje("Vehículo registrado correctamente");
-
       setPlaca("");
       setImagen(null);
       setPreview("");
 
     } catch (error) {
-      console.log(error);
       setMensaje("Error registrando vehículo");
     }
   };
 
-  // 👇 IMPORTANTE: retornas todo
   return {
     image,
     preview,
@@ -103,7 +83,6 @@ function Detector() {
     manejarImagen,
     detectar,
     registrarVehiculo,
+    loading
   };
 }
-
-export default Detector;

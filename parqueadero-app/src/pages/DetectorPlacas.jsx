@@ -1,4 +1,4 @@
-import Detector from "../components/Detector";
+import { useDetector } from "../components/Detector";
 import "../components/styles/DetectorPlacas.css";
 
 function DetectorPlacas() {
@@ -12,7 +12,7 @@ function DetectorPlacas() {
     manejarImagen,
     detectar,
     registrarVehiculo,
-  } = Detector();
+  } = useDetector();
 
   return (
     <div className="placas-container">
