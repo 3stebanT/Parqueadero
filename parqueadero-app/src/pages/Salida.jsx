@@ -1,7 +1,6 @@
 import SalidaComponent from "../components/SalidaComponent";
 
 function Salida() {
-<<<<<<< HEAD
   const [vehiculos, setVehiculos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [vehiculo, setVehiculo] = useState(null);
@@ -125,9 +124,8 @@ function Salida() {
 
     </div>
   );
-=======
+
   return <SalidaComponent />;
->>>>>>> 1b9d77f (parqueadero frontend)
 }
 
 export default Salida;
