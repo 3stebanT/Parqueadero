@@ -1,18 +1,32 @@
 import { useEffect, useState } from "react";
 import { obtenerHistorial } from "../services/api";
 import "./styles/Historial.css";
+import Loader from "../components/Loader";
 
 function Historial() {
   const [historial, setHistorial] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     cargarHistorial();
   }, []);
 
   const cargarHistorial = async () => {
-    const data = await obtenerHistorial();
-    setHistorial(data);
+    try {
+
+      setLoading(true);
+      const data = await obtenerHistorial();
+      setHistorial(data);
+    } catch (error) {
+      console.error("Error al cargar historial:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <div className="historial-container">

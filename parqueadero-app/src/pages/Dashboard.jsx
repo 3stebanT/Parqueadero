@@ -1,22 +1,46 @@
 import { useEffect, useState } from "react";
 import { obtenerVehiculos, obtenerHistorial } from "../services/api";
 import "../components/styles/Dashboard.css";
+import { agruparGananciasPorMes } from "../utils/calcularGanancia";
+import Loader from "../components/Loader";
 
 function Dashboard() {
   const [vehiculos, setVehiculos] = useState([]);
   const [historial, setHistorial] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     cargarDatos();
   }, []);
 
   const cargarDatos = async () => {
-    const v = await obtenerVehiculos();
-    const h = await obtenerHistorial();
+    try {
 
-    setVehiculos(v);
-    setHistorial(h);
+      setLoading(true);
+
+      const v = await obtenerVehiculos();
+      const h = await obtenerHistorial();
+
+      setVehiculos(v);
+      setHistorial(h);
+    } catch (error) {
+      console.error("Error al cargar datos:", error);
+    } finally {
+      setLoading(false);
+    }
   };
+  
+  if (loading) {
+    return <Loader />;
+  }
+
+  const gananciasPorMes = agruparGananciasPorMes(historial);
+
+  const nombresMeses = [
+    "Enero", "Febrero", "Marzo", "Abril",
+    "Mayo", "Junio", "Julio", "Agosto",
+    "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
 
   return (
     <div className="dashboard-container">
@@ -25,15 +49,24 @@ function Dashboard() {
       <div className="dashboard-grid">
         <Card title="Vehículos dentro" value={vehiculos.length} />
         <Card title="Historial" value={historial.length} />
-        <Card title="Ganancias" value={`$${calcularGanancia(historial)}`} />
+      </div>
+
+      <h2 className="dashboard-title" style={{ marginTop: "30px" }}>
+        Ganancias por mes
+      </h2>
+
+      <div className="dashboard-grid">
+        {gananciasPorMes.map((g, i) => (
+          <Card
+            key={i}
+            title={`${nombresMeses[g.mes]} ${g.año}`}
+            value={`$${g.total}`}
+          />
+        ))}
       </div>
     </div>
   );
 }
-
-const calcularGanancia = (historial) => {
-  return historial.reduce((t, v) => t + (v.valor || 0), 0);
-};
 
 function Card({ title, value }) {
   return (

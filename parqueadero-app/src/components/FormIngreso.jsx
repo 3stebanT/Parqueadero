@@ -6,7 +6,6 @@ function FormIngreso({ recargar }) {
   const [placa, setPlaca] = useState("");
   const [tipo, setTipo] = useState("carro");
 
-  // 🔥 NUEVO: estados para mensajes
   const [mensaje, setMensaje] = useState("");
   const [tipoMensaje, setTipoMensaje] = useState("");
 
@@ -45,9 +44,11 @@ function FormIngreso({ recargar }) {
       setMensaje("Vehículo registrado correctamente");
       setTipoMensaje("success");
 
-      recargar();
+      // 🔥 IMPORTANTE: evitar crash si no existe
+      if (typeof recargar === "function") {
+        recargar();
+      }
 
-      //borrar mensaje después de 3 segundos
       setTimeout(() => {
         setMensaje("");
       }, 3000);
@@ -63,7 +64,6 @@ function FormIngreso({ recargar }) {
     <div className="form-container">
       <h3 className="form-title">Registrar vehículo</h3>
 
-      {/* 🔥 MENSAJE DINÁMICO */}
       {mensaje && (
         <div className={`form-alert ${tipoMensaje}`}>
           {mensaje}

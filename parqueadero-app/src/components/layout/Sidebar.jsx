@@ -34,6 +34,11 @@ function Sidebar() {
               Historial
             </Link>
           </li>
+          <li className="sidebar-item">
+            <Link to="/detector" className="sidebar-link">
+              Detector de placas
+            </Link>
+          </li>
         </ul>
       </div>
 

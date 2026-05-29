@@ -16,6 +16,7 @@ import Vehiculos from "./pages/vehiculos";
 import Historialpage from "./pages/Historial";
 import Ingreso from "./pages/Ingreso";
 import Salida from "./pages/Salida";
+import DetectorPlacas from "./pages/DetectorPlacas";
 
 import Layout from "./components/layout/Layout";
 
@@ -109,6 +110,17 @@ function App() {
                 <Historialpage />
               </Layout>
             </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/detector"
+          element={
+          <PrivateRoute>
+          <Layout>
+          <DetectorPlacas />
+          </Layout>
+          </PrivateRoute>
           }
         />
 

@@ -1,28 +1,29 @@
-import SalidaComponent from "../components/SalidaComponent";
+import { useState, useEffect } from "react";
+import { obtenerVehiculos } from "../services/api";
+import Factura from "../components/Factura";
 
-function Salida() {
-<<<<<<< HEAD
+function SalidaComponent() {
   const [vehiculos, setVehiculos] = useState([]);
   const [busqueda, setBusqueda] = useState("");
   const [vehiculo, setVehiculo] = useState(null);
   const [factura, setFactura] = useState(null);
   const [mostrarFactura, setMostrarFactura] = useState(false);
 
+  const URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     cargarVehiculos();
   }, []);
 
-  const URL = import.meta.env.VITE_API_URL;
-  
   const cargarVehiculos = async () => {
     const data = await obtenerVehiculos();
     setVehiculos(data);
   };
 
-  // BUSCAR VEHÍCULO
   const buscarVehiculo = (placa) => {
     const encontrado = vehiculos.find(
-      (v) => v.placa.toLowerCase().trim() === placa.toLowerCase().trim()
+      (v) =>
+        v.placa.toLowerCase().trim() === placa.toLowerCase().trim()
     );
 
     setVehiculo(encontrado || null);
@@ -30,7 +31,6 @@ function Salida() {
     setFactura(null);
   };
 
-  // GENERAR FACTURA (CONGELADA)
   const generarFactura = () => {
     if (!vehiculo) return;
 
@@ -59,7 +59,6 @@ function Salida() {
     setMostrarFactura(true);
   };
 
-  // CONFIRMAR SALIDA
   const confirmarSalida = async () => {
     try {
       await fetch(`${URL}/vehiculos/${factura.idVehiculo}`, {
@@ -83,7 +82,7 @@ function Salida() {
 
       <h2 className="mb-3">Sacar Vehículo</h2>
 
-      {/* 🔎 INPUT */}
+      {/* INPUT */}
       <input
         className="form-control mb-3"
         placeholder="Buscar placa..."
@@ -94,7 +93,7 @@ function Salida() {
         }}
       />
 
-      {/* VEHÍCULO ENCONTRADO */}
+      {/* VEHÍCULO */}
       {vehiculo && (
         <div className="card p-3 mb-3">
           <b>{vehiculo.placa}</b>
@@ -125,9 +124,6 @@ function Salida() {
 
     </div>
   );
-=======
-  return <SalidaComponent />;
->>>>>>> 1b9d77f (parqueadero frontend)
 }
 
-export default Salida;
+export default SalidaComponent;
